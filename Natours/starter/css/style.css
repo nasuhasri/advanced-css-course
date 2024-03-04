@@ -6,3 +6,32 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* start clean - reset the browser bcs some browser may add margin/padding to elements like h1 */
+* {
+    margin: 0;
+    padding: 0;
+    /* borders and paddings no longer added to the total width or total height */
+    box-sizing: border-box;
+}
+
+/* we put font here bcs body is the parent element so it can be inherited */
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    /* 1.7 times bigger than predefined line height */
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh; /* the remaining 5% is the white bar at the bottom */
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url('../img//hero.jpg');
+    background-size: cover;
+    background-position: top;
+
+    /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
