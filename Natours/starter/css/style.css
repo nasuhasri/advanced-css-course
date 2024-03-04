@@ -177,10 +177,11 @@ body {
     color: #777;
 }
 
+/* add element that looks exactly like the button we have, but we put it behind the button */
 .btn::after {
     content: "";
     display: inline-block;
-    /* height and width is based on the button size */
+    /* 100% width of the button since pseudo element is like a child of button= */
     height: 100%;
     width: 100%;
     border-radius: 100px;
