@@ -60,6 +60,8 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    /* backface-visibility: hidden; */
 }
 
 .heading-primary-main {
@@ -68,6 +70,16 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    /* animation */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* 
+    animation-delay: 3s;
+    animation-iteration-count: 3; // happen 3 times
+    */
 }
 
 .heading-primary-sub {
@@ -75,4 +87,47 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    /* short version of animation in moveInLeft */
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    /* start of the animation */
+    0% {
+        opacity: 0;
+        /* animate in X direction: left (-ve), right (+ve) */
+        transform: translateX(-100px);
+    }
+
+    /* at 80%, the element will go 10px to the right */
+    80% {
+        transform: translateX(10px);
+    }
+
+    /* end of the animation */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* start of the animation */
+    0% {
+        opacity: 0;
+        /* animate in X direction: left (-ve), right (+ve) */
+        transform: translateX(100px);
+    }
+
+    /* at 80%, the element will go 10px to the right */
+    80% {
+        transform: translateX(-10px);
+    }
+
+    /* end of the animation */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
