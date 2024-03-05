@@ -9,209 +9,215 @@ Dark green: #28b485
 
 /* start clean - reset the browser bcs some browser may add margin/padding to elements like h1 */
 * {
-    margin: 0;
-    padding: 0;
-    /* borders and paddings no longer added to the total width or total height */
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* borders and paddings no longer added to the total width or total height */
+  box-sizing: border-box;
 }
 
 /* we put font here bcs body is the parent element so it can be inherited */
 body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    /* 1.7 times bigger than predefined line height */
-    line-height: 1.7;
-    color: #777;
-    padding: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* 1.7 times bigger than predefined line height */
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
 }
 
 .header {
-    height: 95vh; /* the remaining 5% is the white bar at the bottom */
-    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url('../img//hero.jpg');
-    background-size: cover;
-    background-position: top;
-    position: relative;
+  height: 95vh; /* the remaining 5% is the white bar at the bottom */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url("../img//hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
 
-    /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
 .logo-box {
-    /* start count from the parent element where parent element position is relative */
-    position: absolute;
-    top: 40px;
-    left: 40px;
+  /* start count from the parent element where parent element position is relative */
+  position: absolute;
+  top: 40px;
+  left: 40px;
 }
 
 .logo {
-    height: 35px;
+  height: 35px;
 }
 
 .text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* x, y */
-    transform: translate(-50%, -50%);
-    text-align: center;
-    /* background-co4lor: red; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* x, y */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* background-co4lor: red; */
 }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-    margin-bottom: 60px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 60px;
 
-    /* backface-visibility: hidden; */
+  /* backface-visibility: hidden; */
 }
 
 .heading-primary-main {
-    /* block - occupies 100% of the width */
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
+  /* block - occupies 100% of the width */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
 
-    /* animation */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+  /* animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 
-    /* 
+  /* 
     animation-delay: 3s;
     animation-iteration-count: 3; // happen 3 times
     */
 }
 
 .heading-primary-sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 
-    /* short version of animation in moveInLeft */
-    animation: moveInRight 1s ease-out;
+  /* short version of animation in moveInLeft */
+  animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
-    /* start of the animation */
-    0% {
-        opacity: 0;
-        /* animate in X direction: left (-ve), right (+ve) */
-        transform: translateX(-100px);
-    }
+  /* start of the animation */
+  0% {
+    opacity: 0;
+    /* animate in X direction: left (-ve), right (+ve) */
+    transform: translateX(-100px);
+  }
 
-    /* at 80%, the element will go 10px to the right */
-    80% {
-        transform: translateX(10px);
-    }
+  /* at 80%, the element will go 10px to the right */
+  80% {
+    transform: translateX(10px);
+  }
 
-    /* end of the animation */
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  /* end of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 @keyframes moveInRight {
-    /* start of the animation */
-    0% {
-        opacity: 0;
-        /* animate in X direction: left (-ve), right (+ve) */
-        transform: translateX(100px);
-    }
+  /* start of the animation */
+  0% {
+    opacity: 0;
+    /* animate in X direction: left (-ve), right (+ve) */
+    transform: translateX(100px);
+  }
 
-    /* at 80%, the element will go 10px to the right */
-    80% {
-        transform: translateX(-10px);
-    }
+  /* at 80%, the element will go 10px to the right */
+  80% {
+    transform: translateX(-10px);
+  }
 
-    /* end of the animation */
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  /* end of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 /* this animation will be applied before the animation starts */
 @keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(30px)
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    /* end of the animation */
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  /* end of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 /* : - pseudo class -- special state of a selector -- link is a state of the button selector */
-.btn:link, .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 12px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-    position: relative;
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
 }
 
 .btn:hover {
-    /* move up (-ve) and down (+ve) */
-    transform: translateY(-3px);
-    /* x-direction, y-direction (10px down), blur (20px), shadow color */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  /* move up (-ve) and down (+ve) */
+  transform: translateY(-3px);
+  /* x-direction, y-direction (10px down), blur (20px), shadow color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
-    /* when we click, it goes 1px to the bottom */
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  /* when we click, it goes 1px to the bottom */
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
-    background-color: #fff;
-    color: #777;
+  background-color: #fff;
+  color: #777;
 }
 
 /* add element that looks exactly like the button we have, but we put it behind the button */
 .btn::after {
-    content: "";
-    display: inline-block;
-    /* 100% width of the button since pseudo element is like a child of button= */
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    /* position is based on the parent which in this case .btn ---- hide behind the button */
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* 
+  content: "";
+  display: inline-block;
+  /* 100% width of the button since pseudo element is like a child of button= */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* position is based on the parent which in this case .btn ---- hide behind the button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 
         - defines the position of the element if they are on top of another
         - its -1 so it is behind the button */
-    z-index: -1;
-    transition: all .4s;
+  z-index: -1;
+  transition: all 0.4s;
 }
 
 .btn-white::after {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .btn:hover::after {
-    /* 
+  /* 
         - double the size it had before
         - just using scale(), it will scale the whole element */
-    transform: scaleX(1.4) scaleY(1.6);
-    /* make it fade out */
-    opacity: 0;
+  transform: scaleX(1.4) scaleY(1.6);
+  /* make it fade out */
+  opacity: 0;
 }
 
 .btn-animated {
-    /* animation name, animation duration, animation timing function, animation delay */
-    animation: moveInBottom .5s ease-out .75s;
-    /* auto apply styles to 0% before animation starts */
-    animation-fill-mode: backwards;
+  /* animation name, animation duration, animation timing function, animation delay */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* auto apply styles to 0% before animation starts */
+  animation-fill-mode: backwards;
 }
