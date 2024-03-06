@@ -8,22 +8,34 @@ Dark green: #28b485
 */
 
 /* start clean - reset the browser bcs some browser may add margin/padding to elements like h1 */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   /* borders and paddings no longer added to the total width or total height */
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  /* 
+    - put it as a root font-size -- its 10 because easy to calculate -- 1rem = 10px
+    - bad practice to set 10px because user may want to change the font-size
+    - but if we set it to 100% based on the font given by browser = 16px
+    - and we dont want 16px, so we divive 10/16 = 0.625 */
+  font-size: 62.5%;
 }
 
 /* we put font here bcs body is the parent element so it can be inherited */
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   /* 1.7 times bigger than predefined line height */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -45,12 +57,12 @@ body {
 .logo-box {
   /* start count from the parent element where parent element position is relative */
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -66,7 +78,7 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 
   /* backface-visibility: hidden; */
 }
@@ -74,9 +86,9 @@ body {
 .heading-primary-main {
   /* block - occupies 100% of the width */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /* animation */
   animation-name: moveInLeft;
@@ -91,9 +103,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* short version of animation in moveInLeft */
   animation: moveInRight 1s ease-out;
@@ -104,12 +116,12 @@ body {
   0% {
     opacity: 0;
     /* animate in X direction: left (-ve), right (+ve) */
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   /* at 80%, the element will go 10px to the right */
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   /* end of the animation */
@@ -124,12 +136,12 @@ body {
   0% {
     opacity: 0;
     /* animate in X direction: left (-ve), right (+ve) */
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   /* at 80%, the element will go 10px to the right */
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   /* end of the animation */
@@ -143,7 +155,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   /* end of the animation */
@@ -158,24 +170,25 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 12px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   /* move up (-ve) and down (+ve) */
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   /* x-direction, y-direction (10px down), blur (20px), shadow color */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   /* when we click, it goes 1px to the bottom */
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -190,7 +203,7 @@ body {
   /* 100% width of the button since pseudo element is like a child of button= */
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* position is based on the parent which in this case .btn ---- hide behind the button */
   position: absolute;
   top: 0;
