@@ -1,0 +1,112 @@
+// sass - variables and nesting
+// mixin, extend, function
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+$color-primary: #f9ed69; // yellow
+$color-secondary: #f08a5d; // orange
+$color-tertiary: #b83b5e; // pink
+$color-text-dark: #333;
+$color-text-light: #eee;
+
+$width-button: 150px;
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin style-link-text($color) {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $color;
+}
+
+nav {
+  margin: 30px;
+  background-color: $color-primary;
+
+  @include clearfix;
+}
+
+// nav::after {
+//   content: "";
+//   clear: both;
+//   display: table;
+// }
+
+// .clearfix::after {
+//   content: "";
+//   clear: both;
+//   display: table;
+// }
+
+.navigation {
+  list-style: none;
+  float: left;
+
+  li {
+    display: inline-block;
+    margin-left: 30px;
+
+    // & - write selector path up until this point
+    &:first-child {
+      margin: 0;
+    }
+
+    a:link {
+      @include style-link-text($color-text-dark);
+    }
+  }
+}
+
+.buttons {
+  float: right;
+}
+
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 100px;
+  width: $width-button;
+  @include style-link-text($color-text-light);
+}
+
+// .btn-main:link,
+// .btn-hot:link {
+//   padding: 10px;
+//   display: inline-block;
+//   text-align: center;
+//   border-radius: 100px;
+//   width: $width-button;
+//   @include style-link-text($color-text-light);
+// }
+
+.btn-main {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-secondary;
+  }
+
+  &:hover {
+    background-color: darken($color-secondary, 15%); // make it 15% darker
+  }
+}
+
+.btn-hot {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-tertiary;
+  }
+
+  &:hover {
+    background-color: darken($color-tertiary, 15%); // make it 15% darker
+  }
+}
