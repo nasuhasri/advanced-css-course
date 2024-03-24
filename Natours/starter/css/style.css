@@ -35,53 +35,48 @@ body {
   position: relative;
   /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  /* start count from the parent element where parent element position is relative */
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* x, y */
-  transform: translate(-50%, -50%);
-  text-align: center;
-  /* background-co4lor: red; */ }
+  .header__logo-box {
+    /* start count from the parent element where parent element position is relative */
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* x, y */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* background-co4lor: red; */ }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   margin-bottom: 6rem;
   /* backface-visibility: hidden; */ }
-
-.heading-primary--main {
-  /* block - occupies 100% of the width */
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /* animation */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* 
-    animation-delay: 3s;
-    animation-iteration-count: 3; // happen 3 times
-    */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* short version of animation in moveInLeft */
-  animation: moveInRight 1s ease-out; }
+  .heading-primary--main {
+    /* block - occupies 100% of the width */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* animation */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* 
+      animation-delay: 3s;
+      animation-iteration-count: 3; // happen 3 times
+      */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* short version of animation in moveInLeft */
+    animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   /* start of the animation */
@@ -121,64 +116,57 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
-/* : - pseudo class -- special state of a selector -- link is a state of the button selector */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem; }
-
-.btn:hover {
-  /* move up (-ve) and down (+ve) */
-  transform: translateY(-0.3rem);
-  /* x-direction, y-direction (10px down), blur (20px), shadow color */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-
-.btn:active {
-  /* when we click, it goes 1px to the bottom */
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* add element that looks exactly like the button we have, but we put it behind the button */
-.btn::after {
-  content: "";
-  display: inline-block;
-  /* 100% width of the button since pseudo element is like a child of button= */
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  /* position is based on the parent which in this case .btn ---- hide behind the button */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* 
-        - defines the position of the element if they are on top of another
-        - its -1 so it is behind the button */
-  z-index: -1;
-  transition: all 0.4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  /* 
+.btn {
+  /* : - pseudo class -- special state of a selector -- link is a state of the button selector */
+  /* add element that looks exactly like the button we have, but we put it behind the button */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    /* move up (-ve) and down (+ve) */
+    transform: translateY(-0.3rem);
+    /* x-direction, y-direction (10px down), blur (20px), shadow color */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      /* 
         - double the size it had before
         - just using scale(), it will scale the whole element */
-  transform: scaleX(1.4) scaleY(1.6);
-  /* make it fade out */
-  opacity: 0; }
-
-.btn--animated {
-  /* animation name, animation duration, animation timing function, animation delay */
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* auto apply styles to 0% before animation starts */
-  animation-fill-mode: backwards; }
+      transform: scaleX(1.4) scaleY(1.6);
+      /* make it fade out */
+      opacity: 0; }
+  .btn:active {
+    /* when we click, it goes 1px to the bottom */
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: "";
+    display: inline-block;
+    /* 100% width of the button since pseudo element is like a child of button= */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* position is based on the parent which in this case .btn ---- hide behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 
+          - defines the position of the element if they are on top of another
+          - its -1 so it is behind the button */
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    /* animation name, animation duration, animation timing function, animation delay */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* auto apply styles to 0% before animation starts */
+    animation-fill-mode: backwards; }
