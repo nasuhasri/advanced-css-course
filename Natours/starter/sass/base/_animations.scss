@@ -1,0 +1,53 @@
+@keyframes moveInLeft {
+  /* start of the animation */
+  0% {
+    opacity: 0;
+    /* animate in X direction: left (-ve), right (+ve) */
+    transform: translateX(-10rem);
+  }
+
+  /* at 80%, the element will go 10px to the right */
+  80% {
+    transform: translateX(1rem);
+  }
+
+  /* end of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* start of the animation */
+  0% {
+    opacity: 0;
+    /* animate in X direction: left (-ve), right (+ve) */
+    transform: translateX(10rem);
+  }
+
+  /* at 80%, the element will go 10px to the right */
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  /* end of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* this animation will be applied before the animation starts */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  /* end of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

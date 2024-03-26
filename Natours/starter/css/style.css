@@ -1,83 +1,3 @@
-/* start clean - reset the browser bcs some browser may add margin/padding to elements like h1 */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  /* borders and paddings no longer added to the total width or total height */
-  box-sizing: inherit; }
-
-html {
-  /* 
-    - put it as a root font-size -- its 10 because easy to calculate -- 1rem = 10px
-    - bad practice to set 10px because user may want to change the font-size
-    - but if we set it to 100% based on the font given by browser = 16px
-    - and we dont want 16px, so we divive 10/16 = 0.625 */
-  font-size: 62.5%; }
-
-/* we put font here bcs body is the parent element so it can be inherited */
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  /* 1.7 times bigger than predefined line height */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* the remaining 5% is the white bar at the bottom */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img//hero.jpg");
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    /* start count from the parent element where parent element position is relative */
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* x, y */
-    transform: translate(-50%, -50%);
-    text-align: center;
-    /* background-co4lor: red; */ }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 6rem;
-  /* backface-visibility: hidden; */ }
-  .heading-primary--main {
-    /* block - occupies 100% of the width */
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /* animation */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /* 
-      animation-delay: 3s;
-      animation-iteration-count: 3; // happen 3 times
-      */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /* short version of animation in moveInLeft */
-    animation: moveInRight 1s ease-out; }
-
 @keyframes moveInLeft {
   /* start of the animation */
   0% {
@@ -115,6 +35,34 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+/* start clean - reset the browser bcs some browser may add margin/padding to elements like h1 */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* borders and paddings no longer added to the total width or total height */
+  box-sizing: inherit; }
+
+html {
+  /* 
+    - put it as a root font-size -- its 10 because easy to calculate -- 1rem = 10px
+    - bad practice to set 10px because user may want to change the font-size
+    - but if we set it to 100% based on the font given by browser = 16px
+    - and we dont want 16px, so we divive 10/16 = 0.625 */
+  font-size: 62.5%; }
+
+/* we put font here bcs body is the parent element so it can be inherited */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  /* 1.7 times bigger than predefined line height */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
 
 .btn {
   /* : - pseudo class -- special state of a selector -- link is a state of the button selector */
@@ -170,3 +118,55 @@ body {
     animation: moveInBottom 0.5s ease-out 0.75s;
     /* auto apply styles to 0% before animation starts */
     animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  /* the remaining 5% is the white bar at the bottom */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img//hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    /* start count from the parent element where parent element position is relative */
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* x, y */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* background-co4lor: red; */ }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+  /* backface-visibility: hidden; */ }
+  .heading-primary--main {
+    /* block - occupies 100% of the width */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* animation */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* 
+      animation-delay: 3s;
+      animation-iteration-count: 3; // happen 3 times
+      */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* short version of animation in moveInLeft */
+    animation: moveInRight 1s ease-out; }

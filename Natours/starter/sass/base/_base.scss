@@ -1,0 +1,24 @@
+/* start clean - reset the browser bcs some browser may add margin/padding to elements like h1 */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* borders and paddings no longer added to the total width or total height */
+  box-sizing: inherit;
+}
+
+html {
+  /* 
+    - put it as a root font-size -- its 10 because easy to calculate -- 1rem = 10px
+    - bad practice to set 10px because user may want to change the font-size
+    - but if we set it to 100% based on the font given by browser = 16px
+    - and we dont want 16px, so we divive 10/16 = 0.625 
+    - defines what 1rem is -> more to base definition */
+  font-size: 62.5%;
+}
+
+/* we put font here bcs body is the parent element so it can be inherited */
+body {
+  box-sizing: border-box;
+}

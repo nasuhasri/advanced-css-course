@@ -1,0 +1,71 @@
+.btn {
+  /* : - pseudo class -- special state of a selector -- link is a state of the button selector */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    /* move up (-ve) and down (+ve) */
+    transform: translateY(-0.3rem);
+    /* x-direction, y-direction (10px down), blur (20px), shadow color */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      /* 
+        - double the size it had before
+        - just using scale(), it will scale the whole element */
+      transform: scaleX(1.4) scaleY(1.6);
+      /* make it fade out */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    /* when we click, it goes 1px to the bottom */
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* add element that looks exactly like the button we have, but we put it behind the button */
+  &::after {
+    content: "";
+    display: inline-block;
+    /* 100% width of the button since pseudo element is like a child of button= */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* position is based on the parent which in this case .btn ---- hide behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 
+          - defines the position of the element if they are on top of another
+          - its -1 so it is behind the button */
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    /* animation name, animation duration, animation timing function, animation delay */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* auto apply styles to 0% before animation starts */
+    animation-fill-mode: backwards;
+  }
+}
