@@ -1,0 +1,7 @@
+@mixin clearfix {
+  &::after {
+    content: ""; // dont want to see this element on the page
+    display: table;
+    clear: both; // clear both floats left and right
+  }
+}
