@@ -9,7 +9,7 @@
     border-radius: 10rem;
     transition: all 0.2s;
     position: relative;
-    font-size: 1.6rem;
+    font-size: $default-font-size;
   }
 
   &:hover {
@@ -67,5 +67,34 @@
     animation: moveInBottom 0.5s ease-out 0.75s;
     /* auto apply styles to 0% before animation starts */
     animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    // set our own underline -> can set padding between text and line
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    // x-direction | y-direction | blur | color, opacity
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    // make the button move upwards ---- Y-direction (-ve: ke-atas, +ve, ke-bawah)
+    transform: translateY(-5px);
+  }
+
+  &:active {
+    // x-direction | y-direction | blur | color, opacity
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
   }
 }
