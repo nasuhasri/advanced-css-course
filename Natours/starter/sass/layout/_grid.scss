@@ -1,7 +1,7 @@
 .row {
   // if viewport < 114 rem, then it fill 100% of the available space
   max-width: $grid-width; // 1rem = 10px
-  background-color: #eee;
+  // background-color: #eee;
   // top/bottom - 0, left/right - auto
   margin: 0 auto; // center block elements inside another block
 
@@ -16,7 +16,7 @@
   // if using * means select any class which contain col-
   // $ means any class that ends with col-
   [class^="col-"] {
-    background-color: burlywood;
+    // background-color: burlywood;
     float: left;
 
     // add margin right to all columns except last child
