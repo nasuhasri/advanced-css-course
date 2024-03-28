@@ -1,0 +1,50 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    // flexible images -> define width of images in % -> nicely scale with the view port
+    width: 55%;
+    // x-direction | y-direction | blur | color, opacity
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    // set to absolute means set the position to (0, 0) of the composition element box
+    position: absolute;
+    // normal position -> value can be any number
+    z-index: 10;
+    // animation
+    transition: all 0.2s;
+    // add space between image and the border
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      // set border line
+      outline: 1.5rem solid $color-primary;
+      // image will be bigger
+      transform: scale(1.05) translateY(-0.5rem);
+      // shadow around the image
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      // when z-index > than 10, then this photo will be on top
+      z-index: 20;
+    }
+  }
+
+  // when the composition hover, select photo thats not hovered
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
