@@ -1,0 +1,55 @@
+.card {
+  // the higher the number, the perspective becomes normal
+  perspective: 150rem;
+  // to make it works in mozilla
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+
+  &__side {
+    color: black;
+    font-size: 2rem;
+
+    height: 50rem;
+    // animation
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // hides the back part of the element
+    backface-visibility: hidden;
+    border-radius: 3px;
+    // x-direction | y-direction | blur | color, opacity
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      // make initial position of backside flipped
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  // when we hover the card, the side will transform
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    // make backside tu return to normal position when hovered
+    transform: rotateY(0);
+  }
+
+  // define the perspective on the parent element where the rotation occurs
+}
