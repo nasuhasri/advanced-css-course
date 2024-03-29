@@ -1,0 +1,35 @@
+.feature-box {
+  // 80% white with opacity 20%
+  background-color: rgba($color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  transition: transform 0.3s;
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5;
+    // make icon colored with background image
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    // background gets clipped exactly where text is
+    background-clip: text;
+    // set color to transparent bcs we want to see the background image
+    color: transparent;
+  }
+
+  &:hover {
+    // translateY -ve -- move upwards
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+
+  // inherit font-size from parent (feature-box)
+  // &__text {
+  // }
+}

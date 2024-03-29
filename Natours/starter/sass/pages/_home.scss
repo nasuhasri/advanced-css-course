@@ -5,3 +5,27 @@
   // use -ve to fill in the above space
   margin-top: -20vh;
 }
+
+.section-features {
+  // top/bottom | left/right
+  padding: 20rem 0;
+  // gradient background image
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/nat-4.jpg");
+  // cover the entire section
+  background-size: cover;
+
+  // skew the entire section
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  // select all direct child under this element
+  // applies on row element only, not the div col etc
+  & > * {
+    transform: skewY(7deg);
+  }
+}
