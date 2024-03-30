@@ -43,6 +43,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* add element that looks exactly like the button we have, but we put it behind the button */
   &::after {
     content: "";
