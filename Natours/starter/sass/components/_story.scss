@@ -29,16 +29,51 @@
     clip-path: circle(50% at 50% 50%);
     // add skewX to skew it manually
     transform: translateX(-3rem) skewX(12deg);
+    position: relative;
   }
 
   // flexible images for responsive web design - always need width!
+  // image at initial state
   &__image {
     // image is under the shape element, so it occupy the width 100% of the 15rem
     height: 100%;
+    // scale 140%
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 0.5s;
+    // backface-visibility: hidden;
   }
 
   &__text {
     // have to apply manually to the element specifically
     transform: skewX(12deg);
+  }
+
+  &__caption {
+    // initial state of the caption
+    position: absolute;
+    // to center the element
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    // backface-visibility: hidden;
+  }
+
+  // when story is hovered, we want to change the caption
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  // when story is hovered, we want to change the image
+  &:hover &__image {
+    transform: translateX(-4rem) scale(1);
+    // 100% - original, below 100% - darker, above 100% - brighter
+    filter: blur(3px) brightness(80%);
   }
 }
