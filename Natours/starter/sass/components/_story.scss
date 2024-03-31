@@ -1,0 +1,44 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  // x-direction | y-direction | blur | color, opacity
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem; // 6rem + 3rem
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  // shape and text. but shape already has transform property and it will not apply the skewX
+  // & > * {
+  //   transform: skewX(12deg);
+  // }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // radius - half of height and width
+    // center horizontally and vertically
+    // we want to make the outside of the shape as circle
+    // define where the content floats around the element
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    // add skewX to skew it manually
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  // flexible images for responsive web design - always need width!
+  &__image {
+    // image is under the shape element, so it occupy the width 100% of the 15rem
+    height: 100%;
+  }
+
+  &__text {
+    // have to apply manually to the element specifically
+    transform: skewX(12deg);
+  }
+}
