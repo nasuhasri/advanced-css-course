@@ -55,11 +55,13 @@
 .book {
   // solid gradient - build on top of the image using linear-gradient
   // 105deg white -> 50% -> orangered -> 50%
+  // A gradient tilted 105 degrees, starting white 0% and finishing white 50%
+  // the rest of degrees will be transparent (can be change to orangered color)
   background-image: linear-gradient(
       105deg,
       rgba($color-white, 0.9) 0%,
       rgba($color-white, 0.9) 50%,
-      orangered 50%
+      transparent 50%
     ),
     url(../../img/nat-10.jpg);
   // can also use 100% - behaviour same as cover
