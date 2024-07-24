@@ -1,5 +1,10 @@
 .btn {
-  /* : - pseudo class -- special state of a selector -- link is a state of the button selector */
+  // : - pseudo class -- special state of a selector -- link is a state of the button selector
+  // these styles only applied for button with :link and :visited
+  // since we just use button with not pseudo class so we use & which will be translated to only button
+  // :link for unvisted links
+  // :visited for visited links
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -10,6 +15,10 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    // change for button element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -28,7 +37,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     /* when we click, it goes 1px to the bottom */
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
