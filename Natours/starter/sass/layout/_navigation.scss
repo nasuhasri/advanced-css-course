@@ -13,6 +13,8 @@
     border-radius: 50%;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center;
+    cursor: pointer;
   }
 
   &__background {
@@ -102,6 +104,7 @@
     }
   }
 
+  // FUNCTIONALITY
   // ~ -> tilde sign -> general sibling combinator
   // select siblings of an element even if they are not directly adjacent
   // when button is checked, it will scale to 80
@@ -113,5 +116,64 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    // creating 3 horizontal line - before, span, after
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    // to make before and after pseudo elements appeared on the page, set content to empty
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  // when button is hover, select ::before pseudo element of icon
+  // can select like this because icon is child of button
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  // + -> next sibling combinator
+  // matches only those elements matched by the second selector that are the next sibling element of the first selector.
+  // when menu button is checked, we make icon looks disappeared
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
   }
 }
