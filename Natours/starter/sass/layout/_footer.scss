@@ -1,0 +1,67 @@
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+
+  &__logo-box {
+    // image is inline element so just need text-align center to make it centered
+    // inline element behaves just like text
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    // inline block doesnt occupy 100% of its available width, only the one that contents need
+    // follow content width
+    display: inline-block;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    // make it side-by-side but not as floated element
+    // so make it as inline element
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-grey-light-1;
+      background-color: $color-grey-dark-3;
+      // remove underline for links
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      // right/left | top/bottom | blur | color
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
+  }
+}
