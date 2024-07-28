@@ -12,6 +12,7 @@
     right: 6rem;
     border-radius: 50%;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
   }
 
   &__background {
@@ -33,18 +34,24 @@
     // put it on top of other element
     // stays on top all the time
     z-index: 1000;
+    transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
 
     // make the background bigger in size
-    transform: scale(80);
+    // transform: scale(80);
   }
 
   &__nav {
     height: 100vh;
-    width: 100%;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1500;
+
+    // hide the nav, adding width to 0 because the links still there
+    opacity: 0;
+    width: 0;
+    // animate opacity for 0.8s
+    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
 
   &__list {
@@ -55,6 +62,7 @@
     transform: translate(-50%, -50%);
     list-style: none;
     text-align: center;
+    width: 100%;
   }
 
   &__item {
@@ -92,5 +100,18 @@
       color: $color-primary;
       transform: translateX(1rem);
     }
+  }
+
+  // ~ -> tilde sign -> general sibling combinator
+  // select siblings of an element even if they are not directly adjacent
+  // when button is checked, it will scale to 80
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  // display navigation back
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
   }
 }
