@@ -13,6 +13,10 @@
   /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
   // & - copies the selector up until this point (in this case .header)
   &__logo-box {
     /* start count from the parent element where parent element position is relative */

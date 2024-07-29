@@ -6,7 +6,6 @@ body {
   /* 1.7 times bigger than predefined line height */
   line-height: 1.7;
   color: $color-grey-dark;
-  padding: 3rem;
 }
 
 .heading-primary {
@@ -28,6 +27,11 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-out;
 
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+
     /* 
       animation-delay: 3s;
       animation-iteration-count: 3; // happen 3 times
@@ -42,6 +46,10 @@ body {
 
     /* short version of animation in moveInLeft */
     animation: moveInRight 1s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -62,6 +70,15 @@ body {
   letter-spacing: 2px;
   // Apply to all changed properties
   transition: all 0.2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  // since phone is smaller so phone is placed at the bottom
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     // scale 110%

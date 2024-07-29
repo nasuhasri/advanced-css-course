@@ -8,6 +8,16 @@
   // select everything expect last child -> last row
   &:not(:last-child) {
     margin-bottom: $gutter-vertical; // put margin bottom to all rows except last one
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    // top-bottom - 0 | left-right - 3
+    padding: 0 3rem;
   }
 
   @include clearfix;
@@ -22,6 +32,17 @@
     // add margin right to all columns except last child
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    // make the grid column to occupy the row
+    @include respond(tab-port) {
+      // put important to make sure other width below are overwrite
+      width: 100% !important;
     }
   }
 

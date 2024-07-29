@@ -54,4 +54,9 @@ html {
 /* we put font here bcs body is the parent element so it can be inherited */
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

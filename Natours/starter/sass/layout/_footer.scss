@@ -2,6 +2,11 @@
   background-color: $color-grey-dark-3;
   padding: 10rem 0;
   font-size: 1.4rem;
+  color: $color-grey-light-1;
+
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
 
   &__logo-box {
     // image is inline element so just need text-align center to make it centered
@@ -21,6 +26,11 @@
     // inline block doesnt occupy 100% of its available width, only the one that contents need
     // follow content width
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__list {
@@ -63,5 +73,10 @@
     padding-top: 2rem;
     width: 80%;
     float: right;
+
+    @include respond(tab-port) {
+      width: 100%;
+      float: none;
+    }
   }
 }

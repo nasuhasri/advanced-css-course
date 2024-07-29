@@ -40,6 +40,8 @@ $breakpoint argument choices:
 // ems better option for media query -> 1em = 16px
 // when user change font size, we want the changes to be reflected in media query also
 // changes will be adopted to font size that the user set for the browser
+
+ORDER: Base + typography > general layout + grid > page layout > components
 */
 @mixin respond($breakpoint) {
   @if ($breakpoint == phone) {
