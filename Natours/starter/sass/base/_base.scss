@@ -14,8 +14,41 @@ html {
     - bad practice to set 10px because user may want to change the font-size
     - but if we set it to 100% based on the font given by browser = 16px
     - and we dont want 16px, so we divive 10/16 = 0.625 
-    - defines what 1rem is -> more to base definition */
+    - defines what 1rem is -> more to base definition 
+    - 1 rem = 10px -> 10px / 16px = 62.5%
+    */
   font-size: 62.5%;
+
+  /*
+  - let say we have 500px, so it will satisfy both phone and tab-port
+  - since it is unnecessary, so we remove phone mixin
+  @include respond(phone) {
+    font-size: 50%;
+  }
+
+  - using the same 500px, both tab-land and tab-port will applied
+  - but it will take the tab-port because of code order
+  - want to apply smaller media query
+  - 500px is smaller to 900px
+  */
+
+  // width < 1200px
+  @include respond(tab-land) {
+    // 1rem = 9px -> 9px/16px = 56.25%
+    font-size: 50%;
+  }
+
+  // width < 900px
+  @include respond(tab-port) {
+    // content that we parse into mixin
+    // 1rem = 8px -> 8px/16px = 50%
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    // 1rem = 12px -> 12px/16px = 75%
+    font-size: 75%;
+  }
 }
 
 /* we put font here bcs body is the parent element so it can be inherited */

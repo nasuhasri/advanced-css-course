@@ -1,3 +1,21 @@
+/*
+0 - 600px:        Phone
+600px - 900px:    Tablet portrait
+900px - 1200px:   Tablet landscape
+1200px - 1800px:  our normal styles apply
+1800px ++:        Big desktop
+*/
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+// ems better option for media query -> 1em = 16px
+// when user change font size, we want the changes to be reflected in media query also
+// changes will be adopted to font size that the user set for the browser
+*/
 @keyframes moveInLeft {
   /* start of the animation */
   0% {
@@ -51,8 +69,31 @@ html {
     - bad practice to set 10px because user may want to change the font-size
     - but if we set it to 100% based on the font given by browser = 16px
     - and we dont want 16px, so we divive 10/16 = 0.625 
-    - defines what 1rem is -> more to base definition */
-  font-size: 62.5%; }
+    - defines what 1rem is -> more to base definition 
+    - 1 rem = 10px -> 10px / 16px = 62.5%
+    */
+  font-size: 62.5%;
+  /*
+  - let say we have 500px, so it will satisfy both phone and tab-port
+  - since it is unnecessary, so we remove phone mixin
+  @include respond(phone) {
+    font-size: 50%;
+  }
+
+  - using the same 500px, both tab-land and tab-port will applied
+  - but it will take the tab-port because of code order
+  - want to apply smaller media query
+  - 500px is smaller to 900px
+  */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 /* we put font here bcs body is the parent element so it can be inherited */
 body {
