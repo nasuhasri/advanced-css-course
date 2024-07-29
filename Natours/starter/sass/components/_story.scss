@@ -15,6 +15,17 @@
   //   transform: skewX(12deg);
   // }
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  // make the box becomes square instead of skew
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     width: 15rem;
     height: 15rem;
@@ -30,6 +41,10 @@
     // add skewX to skew it manually
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   // flexible images for responsive web design - always need width!
@@ -46,6 +61,10 @@
   &__text {
     // have to apply manually to the element specifically
     transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {

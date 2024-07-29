@@ -8,6 +8,7 @@
   height: 52rem;
 
   &__side {
+    // set this height for both back and front side has the same height
     height: 52rem;
     // animation
     transition: all 0.8s ease;
@@ -197,5 +198,57 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      // animation
+      transition: all 0.8s ease;
+      // change from absolute to relative because no longer have 2 sides
+      // basically occupying the same space
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        // make initial position of backside flipped
+        transform: rotateY(0);
+        // (x,y) direction
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    // when we hover the card, the side will transform
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // BACK SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      // top | right | bottom | left
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }

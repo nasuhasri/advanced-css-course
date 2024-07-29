@@ -18,6 +18,10 @@
     width: 90%;
     display: block;
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     // : -> pseudo class -> more on the state
     &:focus {
       outline: none;
@@ -61,6 +65,11 @@
     // make button side by side
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-input {
