@@ -426,7 +426,42 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo" />
+        <!-- density descriptor -->
+        <!-- 
+        1. density switching 
+          - srcset allows browser to choose the best of these 2 images, 
+          - according to the screen used by user
+          - solution: use srcset attribute in <img/>
+        2. art direction
+          - tell browser to use 1 image on 1 screen width and another image on another screen width
+          - make images depend on the screen width
+          - solution: use html element called <picture/>
+        -->
+        <picture class="footer__logo">
+          <!-- 
+          - using picture element, we can specify multiple sources for one image 
+          - in source element, we can write media query just like in css
+          - example: force browser to use image srcset if max width < 600px, else use img element
+          - different images for different viewport width
+          -->
+          <source
+            srcset="
+              img/logo-green-small-1x.png 1x,
+              img/logo-green-small-2x.png 2x
+            "
+            media="(max-width: 37.5em)"
+          />
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Full logo"
+          />
+        </picture>
+        <!-- 1st way -->
+        <!-- <img
+          srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+          alt="Full logo"
+          class="footer__logo"
+        /> -->
       </div>
       <div class="row">
         <div class="col-1-of-2">
