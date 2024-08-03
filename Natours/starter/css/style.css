@@ -791,12 +791,21 @@ body {
 .header {
   height: 95vh;
   /* the remaining 5% is the white bar at the bottom */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img//hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
   /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* 
+  - target resolution media query
+  - 192 dpi - dots per inch. why 192? bcs that is resolution of Apple retina screen
+  - (,) is like OR so apply first condition OR second condition
+  - media queries always in em (600px / 16px) = 37.5em
+  */ }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)), url("../img/hero.jpg"); } }
   @media (max-width: 37.5em) {
     .header {
       clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }

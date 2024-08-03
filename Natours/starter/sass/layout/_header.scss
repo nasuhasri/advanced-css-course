@@ -5,13 +5,29 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url("../img//hero.jpg");
+    url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
 
   /* based on coordinates polygon(x y, x y, x y) - start clockwise from top left */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  /* 
+  - target resolution media query
+  - 192 dpi - dots per inch. why 192? bcs that is resolution of Apple retina screen
+  - (,) is like OR so apply first condition OR second condition
+  - media queries always in em (600px / 16px) = 37.5em
+  */
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    // the large image will be shown in resolution is > 192 (2x screen) and width > 600px (bigger than phone)
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.8),
+        rgba($color-secondary-dark, 0.8)
+      ),
+      url("../img/hero.jpg");
+  }
 
   @include respond(phone) {
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
