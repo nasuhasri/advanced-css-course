@@ -23,7 +23,8 @@
   - (,) is like OR so apply first condition OR second condition
   - media queries always in em (600px / 16px) = 37.5em
   */
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    screen and (min-width: 125em) {
     // the large image will be shown in resolution is > 192 (2x screen) and width > 600px (bigger than phone)
     background-image: linear-gradient(
         to right bottom,

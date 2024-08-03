@@ -200,7 +200,9 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  //@include respond(tab-port) {
+  // whenever screen is small and user using device that cannot hover, we apply this code
+  @media screen and (max-width: 56.25em), screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;
