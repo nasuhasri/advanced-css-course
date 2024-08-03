@@ -12,6 +12,13 @@
   visibility: hidden; // text, content is hidden
   transition: all 0.3s;
 
+  // implemented graceful degradation using @supports rule
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
   &__content {
     @include absCenter;
 
