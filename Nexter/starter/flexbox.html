@@ -29,14 +29,28 @@
         margin: 30px;
         color: #fff;
         font-size: 40px;
+
+        /* occupy all the space they have */
+        flex-grow: 1;
       }
 
       .i2 {
         height: 200px;
+        /* has 2x ability to grow than the others */
+        flex-grow: 2;
+        /* adding width. can start decreasing when there is no available space when resize the browser */
+        flex-basis: 300px;
+        flex-shrink: 1;
+      }
+
+      .i3 {
+        order: 1;
       }
 
       .i4 {
         font-size: 70px;
+        align-self: flex-end;
+        order: -1;
       }
     </style>
   </head>
@@ -44,7 +58,7 @@
     <div class="container">
       <div class="item">1</div>
       <div class="item i2">2</div>
-      <div class="item">3</div>
+      <div class="item i3">3</div>
       <div class="item i4">4</div>
       <div class="item">5</div>
     </div>
