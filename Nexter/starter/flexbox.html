@@ -15,12 +15,19 @@
       .container {
         background-color: #ccc;
         padding: 10px;
+        height: 600px;
 
         display: flex;
         flex-direction: row;
         /* along main axis */
         justify-content: center;
         align-items: flex-end;
+
+        /* make a new row like a text wrap */
+        flex-wrap: wrap;
+        /* align the content itself based on the container */
+        /* controls how the rows are aligned along cross axis (y) */
+        align-content: space-between;
       }
 
       .item {
@@ -49,7 +56,7 @@
 
       .i4 {
         font-size: 70px;
-        align-self: flex-end;
+        /* align-self: flex-end; */
         order: -1;
       }
     </style>
@@ -61,6 +68,11 @@
       <div class="item i3">3</div>
       <div class="item i4">4</div>
       <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
     </div>
   </body>
 </html>
