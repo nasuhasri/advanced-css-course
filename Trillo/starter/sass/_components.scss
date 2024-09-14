@@ -1,25 +1,76 @@
 // LOGO
 .logo {
   height: 3.25rem;
+  margin-left: 3rem;
 }
 
 // SEARCH
 .search {
+  // 0 - dont want it to grow to fill all its available space
+  // 0 - dont want it to shrink
+  // 40% - occupy 40% of the header
+  flex: 0 0 40%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    // top-bottom | left-right
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all 0.2s;
+    // button will move on top of the input
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &::placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  // adjacent
+  &__input:focus + &__button {
+    // button become same color as the input
+    background-color: var(--color-grey-light-3);
   }
 
   &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
   }
 
   // format svg icon to be small
   &__icon {
     height: 2rem;
     width: 2rem;
+    fill: var(--color-grey-dark-3);
   }
 }
 
 // USER NAVIGATION
 .user-nav {
+  background-color: greenyellow;
   &__icon-box {
   }
 
