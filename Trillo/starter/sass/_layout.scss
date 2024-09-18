@@ -28,11 +28,20 @@
   background-color: var(--color-grey-dark-1);
   // grow | shrink | flex-basis
   flex: 0 0 18%;
+
+  display: flex;
+  // change direction of main axis from left to right -> top to bottom
+  flex-direction: column;
+  // since there are 2 elements, the legal text gets pushed to the bottom
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
+
+  // test
   background-color: orangered;
+  height: 80rem;
 
   // to make this element grow until occupy available space
   flex: 1;
