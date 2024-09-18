@@ -132,15 +132,69 @@
 
 // SIDE NAVIGATION
 .side-nav {
+  font-size: 1.4rem;
+  list-style-type: none;
+  margin-top: 3.5rem;
+
   &__item {
+    position: relative;
+
+    // add margin bottom to all element except the last one
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__link {
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    // to test the animation
+    // for transform we want 0.2s, for width we want to wait 0.2s then use 0.4s
+    // set different settings for different properties for animation
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    // the background color grows in Y direction when hover on navigation items
+    // transform origin starts at center by default
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    // top-bottom | left-right
+    padding: 1.5rem 3rem;
+    // position the link on top of pseudo element
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
   }
 
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    // color of current element or parent
+    fill: currentColor;
   }
 }
 
